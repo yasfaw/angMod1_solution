@@ -13,8 +13,9 @@ function evalLanchList($scope){
     // remove empty items
     var list = $scope.items.replace(/ +/g, "")
                 .replace(",,",",").split(',');
+    list = list.filter(item => item.length >0)
     // if input string is blank prompt "add data"
-    if (  $scope.items == "" ){
+    if (  ($scope.items == "") | (list.length == 0) ){
         $scope.result="Please enter data first"
         $scope.styleBorder ={"border": "1px solid red"}
         $scope.styleFont ={"color" : "red"}
